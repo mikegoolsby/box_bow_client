@@ -14,7 +14,7 @@ export default function ContainedButtons() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="center-btn">
       <Button variant="contained" type="submit">Submit</Button>
     </div>
   );

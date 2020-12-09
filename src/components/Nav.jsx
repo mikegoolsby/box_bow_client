@@ -7,13 +7,13 @@ const Nav = (props) => {
     const {state, dispatch} = useAppState()
 
     return <header>
-        <h1>box + bow</h1>
+        <h1 className="main-header">Box & Bow</h1>
         <nav>
-            <Link to="/">Home</Link>
-            {state.token ? <Link to="/listbuilder">Listbuilder</Link> : null}
-            {!state.token ? <Link to="/auth/signup">Signup</Link> : null}
-            {!state.token ? <Link to="/auth/login">Login</Link> : null}
-            {state.token ? <div onClick={() => {
+            <Link to="/" className="nav-links">Home</Link>
+            {state.token ? <Link to="/listbuilder" className="nav-links">Listbuilder</Link> : null}
+            {!state.token ? <Link to="/auth/signup" className="nav-links">Signup</Link> : null}
+            {!state.token ? <Link to="/auth/login" className="nav-links">Login</Link> : null}
+            {state.token ? <div className="nav-links" onClick={() => {
                 dispatch({type: "logout"})
                 props.history.push("/")
             }}>

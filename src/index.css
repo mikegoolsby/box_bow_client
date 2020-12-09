@@ -1,3 +1,8 @@
+.main-header {
+  font-family: 'Great Vibes', cursive;
+  font-size: 68px;
+}
+
 h1 {
   text-align: center;
 }
@@ -16,11 +21,67 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  min-height: 100%;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-a {
+.nav-links{
+  background-color: #b6c373;
+  box-shadow: 0 5px 0 #584f12;
+  color: white;
+  padding: 1em 1.5em;
+  margin-bottom: 15px;
+  position: relative;
   text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav-links:hover {
+  background-color: #ded6ca;
+  text-decoration: none;
+  color: #584f12;
+}
+
+.nav-links:active {
+  box-shadow: none;
+  top: 5px;
+}
+
+.home-page {
+  text-align: center;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+form, button {
+  display: flex;
+  justify-content: center;
+}
+
+#center-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.listbuilder-ul {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+  filter: drop-shadow(4px 4px 24px #584f12);
+}
+
+.gift {
+  border-style: solid;
+  border-color: #b6c373;
+  margin: 3px;
+  width: 25%;
+  border-radius: 7px;
 }

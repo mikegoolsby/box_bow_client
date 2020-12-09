@@ -9,7 +9,20 @@ const initialState = {
     token: null,
     username: null,
     first_name: null,
-    gifts: null
+    gifts: null,
+    new: {
+        title: "",
+        url: "",
+        price: "",
+        comments: ""
+    },
+    edit: {
+        id: 0,
+        title: "",
+        url: "",
+        price: "",
+        comments: ""
+    }
 }
 
 /////

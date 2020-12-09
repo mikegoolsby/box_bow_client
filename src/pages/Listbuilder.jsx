@@ -3,20 +3,21 @@ import {useAppState} from "../AppState.jsx"
 import {Link, Route} from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import Form from '../components/Form'
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-      '& > *': {
-        margin: theme.spacing(1),
-      },
-    },
-}));
+// const useStyles = makeStyles((theme) => ({
+//     root: {
+//       '& > *': {
+//         margin: theme.spacing(1),
+//       },
+//     },
+// }));
 
 const Listbuilder = (props) => {
 
     const {state, dispatch} = useAppState()
     const {token, url, gifts, username} = state
-    const classes = useStyles();
+    // const classes = useStyles();
 
     const getGifts = async () => {
       const response = await fetch(url + "/gifts", {
@@ -42,8 +43,9 @@ const Listbuilder = (props) => {
                 <Button variant="contained" color="primary">
                 Add to your List
                 </Button>
+                <Route path="/listbuilder/:action" render={(rp) => <Form {...rp} getGifts={getGifts}/>}></Route>
             </Link>
-            <ul>
+            <ul className="listbuilder-ul">
                 {state.gifts.map((gift) => (
                     <div className="gift" key="gift.id">
                         <h2>{gift.title}</h2>
