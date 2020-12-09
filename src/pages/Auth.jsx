@@ -16,7 +16,9 @@ const Auth = (props) => {
     React.useEffect(() => {
         if (userData) {
             const {token, user} = userData;
-            dispatch({type: "auth", payload: {token, username: user.username}})
+            dispatch({type: "auth", payload: {token, username: user.username}});
+            window.localStorage.setItem("auth", JSON.stringify({token, username: user.username}))
+            props.history.push("/listbuilder")
         }
     }, [userData])
 
