@@ -10,7 +10,7 @@ const Nav = (props) => {
         <h1>box + bow</h1>
         <nav>
             <Link to="/">Home</Link>
-            <Link to="/listbuilder">Listbuilder</Link>
+            {state.token ? <Link to="/listbuilder">Listbuilder</Link> : null}
             {!state.token ? <Link to="/auth/signup">Signup</Link> : null}
             {!state.token ? <Link to="/auth/login">Login</Link> : null}
             {state.token ? <div onClick={() => {

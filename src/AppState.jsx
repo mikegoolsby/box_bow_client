@@ -7,7 +7,9 @@ import React, { useContext, useReducer } from 'react'
 const initialState = {
     url: "http://box-bow-api.herokuapp.com",
     token: null,
-    username: null
+    username: null,
+    first_name: null,
+    gifts: null
 }
 
 /////
@@ -27,7 +29,12 @@ const reducer = (state, action) => {
             window.localStorage.removeItem("auth")
             return newState
         break;
-        
+
+        case "getGifts":
+            newState = {...state, gifts: action.payload}
+            return newState
+        break;
+
         default:
             return state;
         break;

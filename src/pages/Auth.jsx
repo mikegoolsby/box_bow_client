@@ -56,8 +56,8 @@ const Auth = (props) => {
 
 return <div>
     <form onSubmit={handleSubmit}>
-        <input type="text" name="username" value={formData.username} onChange={handleChange}/>
-        <input type="password" name="password" value={formData.password} onChange={handleChange}/>
+        <input type="text" name="username" placeholder="Enter Username" value={formData.username} onChange={handleChange}/>
+        <input type="password" name="password" placeholder="Enter Password" value={formData.password} onChange={handleChange}/>
         <input type="submit" value={type}/>
     </form>
 </div>
