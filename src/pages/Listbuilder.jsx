@@ -1,10 +1,22 @@
 import React from 'react'
 import {useAppState} from "../AppState.jsx"
+import {Link, Route} from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+    },
+}));
 
 const Listbuilder = (props) => {
 
     const {state, dispatch} = useAppState()
     const {token, url, gifts, username} = state
+    const classes = useStyles();
 
     const getGifts = async () => {
       const response = await fetch(url + "/gifts", {
@@ -26,6 +38,11 @@ const Listbuilder = (props) => {
         return (
         <div>
             <h1>{username}'s List</h1>
+            <Link to="/listbuilder/new">
+                <Button variant="contained" color="primary">
+                Add to your List
+                </Button>
+            </Link>
             <ul>
                 {state.gifts.map((gift) => (
                     <div className="gift" key="gift.id">

@@ -5,7 +5,6 @@ import Auth from "../pages/Auth"
 import Home from "../pages/Home"
 import Listbuilder from "../pages/Listbuilder"
 import Nav from "./Nav"
-import ScrollableTabsButtonForce from "./NavHeader.jsx"
 
 const App = (props) => {
   const {state, dispatch} = useAppState()
@@ -22,12 +21,11 @@ const App = (props) => {
   
   return <>
   <h1>Box & Bow</h1>
-  <ScrollableTabsButtonForce/>
-  {/* <Nav/> */}
+  <Nav/>
   <Switch>
     <Route exact path="/" component={Home}/>
     <Route path="/auth/:form" component={Auth}/>
-    {/* <Route exact path ="/listbuilder" component={Listbuilder} /> */}
+    <Route exact path ="/listbuilder" component={Listbuilder} />
   </Switch>
   </>
 };
