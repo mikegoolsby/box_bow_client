@@ -3,7 +3,7 @@ import {useAppState} from "../AppState.jsx"
 import {Link, Route} from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Form from '../components/Form'
+import FormPropsTextFields from '../components/Form'
 
 // const useStyles = makeStyles((theme) => ({
 //     root: {
@@ -38,24 +38,23 @@ const Listbuilder = (props) => {
 
         return (
         <div>
-            <h1>{username}'s List</h1>
-            <Link to="/listbuilder/new">
-                <Button variant="contained" color="primary">
-                Add to your List
-                </Button>
-                <Route path="/listbuilder/:action" render={(rp) => <Form {...rp} getGifts={getGifts}/>}></Route>
-            </Link>
+            <h1 className="list-header">{username}'s Wishlist this year. Happy shopping!</h1>
             <ul className="listbuilder-ul">
                 {state.gifts.map((gift) => (
                     <div className="gift" key="gift.id">
                         <h2>{gift.title}</h2>
-                        <h4>{gift.price}</h4>
+                        <h4>${gift.price}</h4>
                         <a href={gift.url} target="_blank">View on Website</a>
-                        <p>{gift.comments}</p>
+                        <h3 className="comments">Comments: </h3><p>{gift.comments}</p>
                     </div>
                 ))}
             </ul>
-            
+            <Link to="/listbuilder/new">
+                <Button variant="contained" color="primary">
+                Add to your List
+                </Button>
+                <Route path="/listbuilder/:action" render={(rp) => <FormPropsTextFields {...rp} getGifts={getGifts}/>}></Route>
+            </Link>
         </div>
     )}
 

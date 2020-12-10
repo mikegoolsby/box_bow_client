@@ -1,11 +1,14 @@
 .main-header {
   font-family: 'Great Vibes', cursive;
   font-size: 68px;
+  color: white;
+  filter: drop-shadow(8px 8px 18px white);
 }
 
 h1 {
   text-align: center;
 }
+
 
 header nav {
   display: flex;
@@ -19,6 +22,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:#292841;
+  color: white;
 }
 
 html {
@@ -30,21 +35,32 @@ code {
     monospace;
 }
 
+.comments {
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.list-header {
+  font-family: 'Squada One', cursive;
+  padding: 14px;
+}
+
 .nav-links{
-  background-color: #b6c373;
-  box-shadow: 0 5px 0 #584f12;
+  background-color: #7371b1;
+  box-shadow: 0 5px 0 #25252b;
   color: white;
   padding: 1em 1.5em;
   margin-bottom: 15px;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
+  border-radius: 7px;
 }
 
 .nav-links:hover {
-  background-color: #ded6ca;
+  background-color: gainsboro;
   text-decoration: none;
-  color: #584f12;
+  color: black;
 }
 
 .nav-links:active {
@@ -54,16 +70,29 @@ code {
 
 .home-page {
   text-align: center;
+  font-size: 80px;
+  font-family: 'Squada One', cursive;
+  padding: 14px;
+}
+
+.home-page-p {
+  text-align: center;
+  font-size: 17px;
 }
 
 img {
   width: 100%;
   height: auto;
+  border-radius: 7px;
 }
 
 form, button {
   display: flex;
   justify-content: center;
+}
+
+p {
+  font-size: 14px;
 }
 
 #center-btn {
@@ -75,12 +104,14 @@ form, button {
   display: flex;
   justify-content: center;
   margin: 5px;
-  filter: drop-shadow(4px 4px 24px #584f12);
 }
 
 .gift {
   border-style: solid;
-  border-color: #b6c373;
+  border-color: black;
+  padding: 3px;
+  color: white;
+  background-color: #4e5363;
   margin: 3px;
   width: 25%;
   border-radius: 7px;
