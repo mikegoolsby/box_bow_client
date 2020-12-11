@@ -6,6 +6,9 @@ import Button from "./Button"
 const Form = (props) => {
   const {state} = useAppState();
   const action = props.match.params.action
+  console.log("Action: ", action)
+  console.log("State: ", state)
+  console.log("Initial Form Data: ", state[action])
   const [formData, setFormData] = React.useState(state[action])
 
   const actions = {

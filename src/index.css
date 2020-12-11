@@ -3,6 +3,7 @@
   font-size: 68px;
   color: white;
   filter: drop-shadow(8px 8px 18px white);
+  margin: 10px;
 }
 
 h1 {
@@ -80,7 +81,7 @@ code {
   font-size: 17px;
 }
 
-img {
+.bg-img {
   width: 100%;
   height: auto;
   border-style: solid;
