@@ -1,8 +1,6 @@
 import React from 'react'
 import {useAppState} from "../AppState.jsx"
 import {Link, Route} from 'react-router-dom'
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import Form from '../components/Form.jsx'
 
 // const useStyles = makeStyles((theme) => ({
@@ -39,26 +37,45 @@ const Listbuilder = (props) => {
         return (
         <div>
             <h1 className="list-header">{username}'s Wishlist this year. Happy shopping!</h1>
-            <ul className="listbuilder-ul">
+            <Route path="/listbuilder/:action" render={(rp) => <Form {...rp} getGifts={getGifts}/>}></Route>
+            <ul className="listbuilder-ul" id="container">
                 {state.gifts.map((gift) => (
                     <div className="gift" key="gift.id">
                         <h2>{gift.title}</h2>
                         <h4>${gift.price}</h4>
                         <a href={gift.url} target="_blank">View on Website</a>
                         <h3 className="comments">Comments: </h3><p>{gift.comments}</p>
+                        <div className="btn-holder">
+                            <div className="nav-links" id="center-txt" onClick={() => {
+                                dispatch({type: "select", payload: gift})
+                                props.history.push("/listbuilder/edit")
+                            }}>Edit</div>
+                        </div>
+                        <div className="btn-holder">
+                            <div className="nav-links-red" id="center-txt" onClick={() => {
+                                fetch(url + "/gifts/" + gift.id, {
+                                    method: "delete",
+                                    headers: {
+                                        Authorization: "bearer " + token
+                                    }
+                                })
+                                .then(() => getGifts());
+                            }}>Delete</div>
+                        </div>
                     </div>
                 ))}
             </ul>
+            <div className="center-btn">
             <Link to="/listbuilder/new">
-                <button className="nav-links">
-                Add to your List
-                </button>
+                    <button className="nav-links" id="center-me">
+                    Add to your List
+                    </button>
             </Link>
-            <Route path="/listbuilder/:action" render={(rp) => <Form {...rp} getGifts={getGifts}/>}></Route>
+            </div>
         </div>
     )}
 
-    return gifts ? loaded() : <h1>Loading..</h1>;
+    return gifts ? loaded() : <h1 className="main-header">just a second...</h1>;
 };
 
 export default Listbuilder;

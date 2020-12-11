@@ -5,6 +5,7 @@ import Button from "./Button"
 
 const Form = (props) => {
   const {state} = useAppState();
+  const {token} = state
   const action = props.match.params.action
   console.log("Action: ", action)
   console.log("State: ", state)
@@ -17,15 +18,17 @@ const Form = (props) => {
                 method: "post",
                 headers: {
                     "Content-Type": "application/json",
+                    Authorization: "bearer " + token,
                 },
                 body: JSON.stringify(formData),
             }).then((response) => response.json())
         },
         edit: () => {
             return fetch(state.url + "/gifts/" + state.edit.id, {
-                method: "post",
+                method: "put",
                 headers: {
                     "Content-Type": "application/json",
+                    Authorization: "bearer " + token,
                 },
                 body: JSON.stringify(formData),
             }).then((response) => response.json())
@@ -52,7 +55,6 @@ const Form = (props) => {
           required
           label="Title"
           placeholderValue="Name of Gift"
-          variant="outlined"
           type="text"
           title="title"
           value={formData.title}
@@ -61,7 +63,6 @@ const Form = (props) => {
         <input
           label="URL"
           placeholderValue="Paste URL here"
-          variant="outlined"
           type="text"
           title="url"
           value={formData.url}
@@ -71,7 +72,6 @@ const Form = (props) => {
           label="Price"
           placeholderValue="Enter Price"
           type="number"
-          variant="outlined"
           helperText="Round up! No decimals needed."
           title="price"
           value={formData.price}
@@ -80,13 +80,12 @@ const Form = (props) => {
         <input
           label="Comments"
           placeholderValue="Enter any comments here"
-          variant="outlined"
           type="text"
           title="comments"
           value={formData.comments}
           onChange={handleChange}
         />
-        <Button/>
+        <Button value={action}/>
       </div>
     </form>
   );

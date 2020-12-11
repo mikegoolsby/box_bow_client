@@ -1,21 +1,11 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-    },
-  },
-}));
 
-export default function ContainedButtons() {
-  const classes = useStyles();
+export default function Button() {
 
   return (
-    <div className={classes.root} id="center-btn">
-      <Button variant="contained" type="submit">Submit</Button>
+    <div className="nav-links" id="center-btn">
+      <input type="submit">Submit</input>
     </div>
   );
 }

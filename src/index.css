@@ -16,6 +16,21 @@ header nav {
   justify-content: space-around;
 }
 
+.center-btn {
+  height: 200px;
+  position: relative;
+}
+
+#center-me {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -56,6 +71,48 @@ code {
   text-decoration: none;
   text-transform: uppercase;
   border-radius: 7px;
+  cursor: pointer;
+}
+
+.nav-links-red{
+  background-color: #e25f48;
+  box-shadow: 0 5px 0 #25252b;
+  color: white;
+  padding: 1em 1.5em;
+  margin-bottom: 15px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+#pad-me {
+  margin-left: 5px;
+}
+
+.form-input {
+  border-radius: 7px;
+  padding: 3px;
+  margin: 10px;
+  height: 50px;
+  border: #25252b;
+}
+
+#center-txt {
+  display: flex;
+  justify-content: center;
+}
+
+#container {
+  justify-content: space-between;
+  flex-direction: row;
+  height: 500px;
+  display: flex;
+}
+#container .btn-holder {
+  justify-content: center;
+  display: flex;
 }
 
 .nav-links:hover {

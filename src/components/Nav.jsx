@@ -10,7 +10,7 @@ const Nav = (props) => {
     return <header>
         <h1 className="main-header">Box & Bow</h1>
         <nav>
-            <Link to="/" className="nav-links">Home</Link>
+            {!state.token ? <Link to="/" className="nav-links">Home</Link> : null}
             {state.token ? <Link to="/listbuilder" className="nav-links">Listbuilder</Link> : null}
             {!state.token ? <Link to="/auth/signup" className="nav-links">Signup</Link> : null}
             {!state.token ? <Link to="/auth/login" className="nav-links">Login</Link> : null}
