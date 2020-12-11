@@ -6,10 +6,9 @@ import Home from "../pages/Home"
 import Listbuilder from "../pages/Listbuilder"
 import Nav from "./Nav"
 import Form from '../components/Form'
-import Edit from '../pages/Edit'
 
 const App = (props) => {
-  const {dispatch} = useAppState()
+  const {state, dispatch} = useAppState()
   React.useState(() => {
     const auth = JSON.parse(window.localStorage.getItem("auth"))
     if (auth) {
@@ -28,7 +27,6 @@ const App = (props) => {
     <Route path="/auth/:form" component={Auth}/>
     <Route exact path ="/listbuilder" component={Listbuilder} />
     <Route exact path="/listbuilder/new" component={Form} />
-    <Route exact path="/listbuilder/edit" component={Edit} />
   </Switch>
   </>
 };

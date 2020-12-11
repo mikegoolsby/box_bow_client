@@ -1,16 +1,18 @@
 import React from 'react';
 import {useAppState} from "../AppState.jsx"
-import Button from "./Button"
 
 
 const Form = (props) => {
-  const {state} = useAppState();
+  const {state, dispatch} = useAppState();
   const {token} = state
-  const action = props.match.params.action
-  console.log("Action: ", action)
-  console.log("State: ", state)
-  console.log("Initial Form Data: ", state[action])
-  const [formData, setFormData] = React.useState(state[action])
+  const action = props.match.params.action;
+  // console.log("Action: ", action)
+  // console.log("State: ", state)
+  // console.log("Initial Form Data: ", state[action])
+  
+  const [formData, setFormData] = React.useState(state[action]);
+
+  console.log(formData)
 
   const actions = {
         new: () => {
@@ -36,20 +38,20 @@ const Form = (props) => {
     }
 
   const handleChange = (event) => {
-    setFormData({...formData, [event.target.name] : event.target.value})
+    setFormData({...formData, [event.target.name]: event.target.value})
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
     actions[action]().then((data) => {
         props.getGifts()
-        props.history.push("/listbuilder")
+        props.history.push("/listbuilder/")
     });
   };
 
 
   return (
-    <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div>
         <input
           required
@@ -85,7 +87,7 @@ const Form = (props) => {
           value={formData.comments}
           onChange={handleChange}
         />
-        <Button value={action}/>
+        <input className="nav-links" id="pad-me" type="submit" value={action} />
       </div>
     </form>
   );

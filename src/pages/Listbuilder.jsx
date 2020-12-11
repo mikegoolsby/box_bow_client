@@ -14,7 +14,7 @@ import Form from '../components/Form.jsx'
 const Listbuilder = (props) => {
 
     const {state, dispatch} = useAppState()
-    const {token, url, gifts, username} = state
+    const {token, url, gifts, username} = state;
     // const classes = useStyles();
 
     const getGifts = async () => {
@@ -37,10 +37,10 @@ const Listbuilder = (props) => {
         return (
         <div>
             <h1 className="list-header">{username}'s Wishlist this year. Happy shopping!</h1>
-            <Route path="/listbuilder/:action" render={(rp) => <Form {...rp} getGifts={getGifts}/>}></Route>
+            <Route path="/listbuilder/:action" render={(rp) => <Form {...rp} getGifts={getGifts}/>}/>
             <ul className="listbuilder-ul" id="container">
                 {state.gifts.map((gift) => (
-                    <div className="gift" key="gift.id">
+                    <div className="gift" key={gift.id}>
                         <h2>{gift.title}</h2>
                         <h4>${gift.price}</h4>
                         <a href={gift.url} target="_blank">View on Website</a>

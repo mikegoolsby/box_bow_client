@@ -5,7 +5,7 @@ import React, { useContext, useReducer } from 'react'
 ////
 
 const initialState = {
-    url: "http://box-bow-api.herokuapp.com",
+    url: "https://box-bow-api.herokuapp.com",
     token: null,
     username: null,
     first_name: null,
