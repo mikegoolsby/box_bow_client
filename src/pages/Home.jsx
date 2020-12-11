@@ -1,5 +1,5 @@
 import React from 'react'
-import bgImage from '../images/gift.jpg'
+import bgImage from '../images/gift3.jpg'
 
 const Home = (props) => {
     return <>

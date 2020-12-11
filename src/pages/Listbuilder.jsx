@@ -3,7 +3,7 @@ import {useAppState} from "../AppState.jsx"
 import {Link, Route} from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import FormPropsTextFields from '../components/Form'
+import Form from '../components/Form.jsx'
 
 // const useStyles = makeStyles((theme) => ({
 //     root: {
@@ -50,11 +50,11 @@ const Listbuilder = (props) => {
                 ))}
             </ul>
             <Link to="/listbuilder/new">
-                <Button variant="contained" color="primary">
+                <button className="nav-links">
                 Add to your List
-                </Button>
-                <Route path="/listbuilder/:action" render={(rp) => <FormPropsTextFields {...rp} getGifts={getGifts}/>}></Route>
+                </button>
             </Link>
+            <Route path="/listbuilder/:action" render={(rp) => <Form {...rp} getGifts={getGifts}/>}></Route>
         </div>
     )}
 

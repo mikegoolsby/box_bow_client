@@ -1,20 +1,9 @@
 import React from 'react';
 import {useAppState} from "../AppState.jsx"
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
 import Button from "./Button"
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
-  },
-}));
 
-export default function FormPropsTextFields(props) {
-  const classes = useStyles();
+const Form = (props) => {
   const {state} = useAppState();
   const action = props.match.params.action
   const [formData, setFormData] = React.useState(state[action])
@@ -47,18 +36,17 @@ export default function FormPropsTextFields(props) {
   const handleSubmit = (event) => {
     event.preventDefault()
     actions[action]().then((data) => {
-        props.getNotes()
+        props.getGifts()
         props.history.push("/listbuilder")
     });
   };
 
 
   return (
-    <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
+    <form noValidate autoComplete="off" onSubmit={handleSubmit}>
       <div>
-        <TextField
+        <input
           required
-          id="outlined-required"
           label="Title"
           placeholderValue="Name of Gift"
           variant="outlined"
@@ -67,8 +55,7 @@ export default function FormPropsTextFields(props) {
           value={formData.title}
           onChange={handleChange}
         />
-        <TextField
-          id="outlined-required"
+        <input
           label="URL"
           placeholderValue="Paste URL here"
           variant="outlined"
@@ -77,8 +64,7 @@ export default function FormPropsTextFields(props) {
           value={formData.url}
           onChange={handleChange}
         />
-        <TextField
-          id="outlined-required"
+        <input
           label="Price"
           placeholderValue="Enter Price"
           type="number"
@@ -88,8 +74,7 @@ export default function FormPropsTextFields(props) {
           value={formData.price}
           onChange={handleChange}
         />
-        <TextField
-          id="outlined-required"
+        <input
           label="Comments"
           placeholderValue="Enter any comments here"
           variant="outlined"
@@ -103,3 +88,5 @@ export default function FormPropsTextFields(props) {
     </form>
   );
 }
+
+export default Form;

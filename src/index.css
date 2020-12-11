@@ -83,7 +83,8 @@ code {
 img {
   width: 100%;
   height: auto;
-  border-radius: 7px;
+  border-style: solid;
+  border-color: white;
 }
 
 form, button {
@@ -115,4 +116,8 @@ p {
   margin: 3px;
   width: 25%;
   border-radius: 7px;
+}
+
+.MuiInputBase-input {
+  color: white;
 }

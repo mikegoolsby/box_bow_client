@@ -70,9 +70,9 @@ const Auth = (props) => {
     }
 
 return <div>
-    <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
-        <TextField id="standard-basic" label="Username" type="text" name="username" placeholder="Enter Username" value={formData.username} onChange={handleChange}/>
-        <TextField id="standard-basic" label="Password" type="password" name="password" placeholder="Enter Password" value={formData.password} onChange={handleChange}/>
+    <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+        <input id="standard-basic" label="Username" type="text" name="username" placeholder="Enter Username" value={formData.username} onChange={handleChange}/>
+        <input id="standard-basic" label="Password" type="password" name="password" placeholder="Enter Password" value={formData.password} onChange={handleChange}/>
         <Button/>
     </form>
 </div>

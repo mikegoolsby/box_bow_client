@@ -5,7 +5,7 @@ import Auth from "../pages/Auth"
 import Home from "../pages/Home"
 import Listbuilder from "../pages/Listbuilder"
 import Nav from "./Nav"
-// import FormPropsTextFields from '../pages/Form'
+import Form from '../components/Form'
 
 const App = (props) => {
   const {dispatch} = useAppState()
@@ -26,7 +26,7 @@ const App = (props) => {
     <Route exact path="/" component={Home}/>
     <Route path="/auth/:form" component={Auth}/>
     <Route exact path ="/listbuilder" component={Listbuilder} />
-    {/* <Route exact path="/listbuilder/new" component={FormPropsTextFields} /> */}
+    <Route exact path="/listbuilder/new" component={Form} />
   </Switch>
   </>
 };
