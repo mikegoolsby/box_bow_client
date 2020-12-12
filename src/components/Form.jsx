@@ -9,10 +9,11 @@ const Form = (props) => {
   // console.log("Action: ", action)
   // console.log("State: ", state)
   // console.log("Initial Form Data: ", state[action])
+  // console.log(props)
   
   const [formData, setFormData] = React.useState(state[action]);
 
-  console.log(formData)
+  // console.log(formData)
 
   const actions = {
         new: () => {
@@ -38,13 +39,13 @@ const Form = (props) => {
     }
 
   const handleChange = (event) => {
-    setFormData({...formData, [event.target.name]: event.target.value})
+    setFormData({...formData, [event.target.name] : event.target.value})
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
     actions[action]().then((data) => {
-        props.getGifts()
+        // props.getGifts()
         props.history.push("/listbuilder/")
     });
   };
@@ -52,43 +53,40 @@ const Form = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <input
-          required
+        <input className="form-input" 
           label="Title"
-          placeholderValue="Name of Gift"
+          placeholder="Name of Gift"
           type="text"
-          title="title"
+          name="title"
           value={formData.title}
           onChange={handleChange}
         />
-        <input
+        <input className="form-input"
           label="URL"
-          placeholderValue="Paste URL here"
+          placeholder="Paste URL here"
           type="text"
-          title="url"
+          name="url"
           value={formData.url}
           onChange={handleChange}
         />
-        <input
+        <input className="form-input"
           label="Price"
-          placeholderValue="Enter Price"
+          placeholder="Enter Price"
           type="number"
           helperText="Round up! No decimals needed."
-          title="price"
+          name="price"
           value={formData.price}
           onChange={handleChange}
         />
-        <input
+        <input className="form-input"
           label="Comments"
-          placeholderValue="Enter any comments here"
+          placeholder="Comments"
           type="text"
-          title="comments"
+          name="comments"
           value={formData.comments}
           onChange={handleChange}
         />
         <input className="nav-links" id="pad-me" type="submit" value={action} />
-      </div>
     </form>
   );
 }

@@ -17,7 +17,7 @@ const App = (props) => {
     } else {
       props.history.push("/")
     }
-  })
+  }, [])
 
   
   return <>
@@ -26,7 +26,7 @@ const App = (props) => {
     <Route exact path="/" component={Home}/>
     <Route path="/auth/:form" component={Auth}/>
     <Route exact path ="/listbuilder" component={Listbuilder} />
-    <Route exact path="/listbuilder/new" component={Form} />
+    <Route path="/listbuilder/:action" component={Form} />
   </Switch>
   </>
 };

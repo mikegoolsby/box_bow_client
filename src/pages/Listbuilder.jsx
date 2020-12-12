@@ -43,7 +43,7 @@ const Listbuilder = (props) => {
                     <div className="gift" key={gift.id}>
                         <h2>{gift.title}</h2>
                         <h4>${gift.price}</h4>
-                        <a href={gift.url} target="_blank">View on Website</a>
+                        <a href={gift.url} target="_blank" rel="noreferrer">View on Website</a>
                         <h3 className="comments">Comments: </h3><p>{gift.comments}</p>
                         <div className="btn-holder">
                             <div className="nav-links" id="center-txt" onClick={() => {
@@ -61,6 +61,12 @@ const Listbuilder = (props) => {
                                 })
                                 .then(() => getGifts());
                             }}>Delete</div>
+                        </div>
+                        <div id="center-txt">
+                            <h4>Purchased?</h4>
+                        </div>
+                        <div id="center-txt">
+                            <input type="checkbox" className="nav-links"></input>
                         </div>
                     </div>
                 ))}

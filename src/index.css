@@ -97,6 +97,7 @@ code {
   margin: 10px;
   height: 50px;
   border: #25252b;
+  z-index: 99999;
 }
 
 #center-txt {
